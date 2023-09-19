@@ -5,7 +5,7 @@ public class Product {
     protected String title;
     protected int price;
 
-    public Product(int id, String title, int i) {
+    public Product(int id, String title, int price) {
         this.id = id;
         this.title = title;
         this.price = price;
@@ -26,7 +26,7 @@ public class Product {
     }
 
     public int getId() {
-        return 0;
+        return id;
     }
 
     // геттеры + сеттеры

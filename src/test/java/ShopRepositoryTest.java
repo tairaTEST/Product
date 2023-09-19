@@ -6,7 +6,7 @@ public class ShopRepositoryTest {
     public void testRemoveProductExist(){
         ShopRepository repo = new ShopRepository();
         Product product1 = new Product(9, "журнал", 500);
-        Product product2 = new Product( 16, "айпад", 25_000);
+        Product product2 = new Product( 16, "айпад", 25000);
 
         repo.add(product1);
         repo.add(product2);
@@ -16,17 +16,17 @@ public class ShopRepositoryTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-    //@Test
-   // public void testRemoveProductNotExist(){
-      //  ShopRepository repo = new ShopRepository();
-      //  Product product1 = new Product(9, "журнал", 500);
-       // Product product2 = new Product( 16, "айпад", 25_000);
+    @Test
+    public void testRemoveProductNoExist(){
+        ShopRepository repo = new ShopRepository();
+        Product product1 = new Product(9, "журнал", 500);
+        Product product2 = new Product( 16, "айпад", 25000);
 
-       // repo.add(product1);
-       // repo.add(product2);
-       // Assertions.assertThrows(NotFoundException.class
-       // () -> repo.remove(77)
-            );
+        repo.add(product1);
+        repo.add(product2);
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.remove(77);
+        });
     }
 
     }

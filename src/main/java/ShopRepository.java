@@ -31,10 +31,10 @@ public class ShopRepository {
     }
 
     // Этот способ мы рассматривали в теории в теме про композицию
-    public void remove(int id) {
+    public Product[] remove(int id) {
         Product removeProduct = findById(id);
         if (removeProduct == null) {
-            throw new NotFoundException(id);
+           throw new NotFoundException(id);
         }
         Product[] tmp = new Product[products.length - 1];
         int copyToIndex = 0;
@@ -45,6 +45,7 @@ public class ShopRepository {
             }
         }
         products = tmp;
+        return tmp;
     }
 
     private Product findById(int id) {
